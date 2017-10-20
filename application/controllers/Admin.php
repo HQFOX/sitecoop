@@ -5,12 +5,14 @@ class Admin extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url_helper');
-        $this->load->model('NovosProjectos_model');
+        $this->load->model('Admin_model');
+        $this->load->library('form_validation');
+
 
  /*       //verificar se o login foi feito
         if(isset($_SESSION['login']) == TRUE)
         {
-            $this->load->view('news/adminDashboard');
+            $this->load->view('news/adminProjetos');
         }
         else{
             redirect('index.php/login');
@@ -24,21 +26,12 @@ class Admin extends CI_Controller {
         //verificar se o login foi feito
         if(isset($_SESSION['login']) == TRUE)
         {
-            $data['projetos'] = $this->NovosProjectos_model->getProjetos();
+            $data['projetos']  = $this->Admin_model->getProjetos();
 
+
+            $this->load->model('Admin_model');
             $this->load->view('templates/header', $data);
-            $this->load->view('news/adminDashboard');
-            $this->load->view('templates/footer');
-
-            $nome_projeto = $this->input->post("nome_projeto");
-            $localizacao = $this->input->post("localizacao");
-
-            //verificacao do input
-                if ($this->input->post('btn_login') == "Login")
-                {
-
-
-                }
+            $this->load->view('news/adminDashboard', $data);
         }
         else{
             redirect('index.php/login');
@@ -48,6 +41,106 @@ class Admin extends CI_Controller {
 
     }
 
+    public function administrarProjetos()
+    {
+        //verificar se o login foi feito
+        if(isset($_SESSION['login']) == TRUE)
+        {
+            $data['projetos']  = $this->Admin_model->getProjetos();
+
+
+            $this->load->model('Admin_model');
+            $this->load->view('templates/header', $data);
+            /*$this->load->view('news/adminProjetos', $data);*/
+
+
+            $nome_projeto = $this->input->post("nome");
+            $localizacao = $this->input->post("localizacao");
+            $tipologia = $this->input->post("tipologia");
+            $valor = $this->input->post("valor");
+            $nquartos = $this->input->post("nquartos");
+            $ninscritos = $this->input->post("ninscritos");
+            $limiteinscritos = $this->input->post("limiteinscritos");
+
+
+
+            //FALTA AS REGRAS
+            $this->form_validation->set_rules('nome_projeto', 'nome', 'required',
+                array('required' => 'You must provide a %s.')
+            );
+            $this->form_validation->set_rules('localizacao', 'localizacão', 'required',
+                array('required' => 'You must provide a %s.')
+            );
+            $this->form_validation->set_rules('tipologia', 'tipologia', 'required',
+                array('required' => 'You must provide a %s.')
+            );
+            $this->form_validation->set_rules('valor', 'valor', 'required|numeric',
+                array('required' => 'You must provide a %s.')
+            );
+            $this->form_validation->set_rules('nquartos', 'Numero de quartos', 'required|numeric',
+                array('required' => 'You must provide a %s.')
+            );
+            $this->form_validation->set_rules('ninscritos', 'Numero de Inscritos', 'required|numeric',
+                array('required' => 'You must provide a %s.')
+            );
+            $this->form_validation->set_rules('limiteinscritos', 'Limite Inscritos', 'required|numeric',
+                array('required' => 'You must provide a %s.')
+            );
+            //verificacao do input
+
+
+            if ($this->input->post('btn_login') == "Login")
+            {
+
+                if ($this->form_validation->run() == FALSE)
+                {
+                    //validation fails
+                    echo ('FALSO');
+
+                }
+                else {
+
+                    $input = array(
+                        'nome' => $nome_projeto,
+                        'localizacao' => $localizacao,
+                        'tipologia' => $tipologia,
+                        'valor' => $valor,
+                        'nquartos' => $nquartos,
+
+                        'ninscritos' => $ninscritos,
+                        'limiteinscritos' => $limiteinscritos
+
+                    );
+
+                    $this->Admin_model->exemplo($input);
+                    echo json_encode($input);
+
+                }
+            }
+
+
+
+
+
+
+            $this->load->view('news/adminProjetos', $data);
+        }
+        else{
+            redirect('index.php/login');
+        }
+
+
+
+    }
+    public function delete($id){
+
+
+        $this->Admin_model->delProjeto($id);
+        redirect('index.php/admin/administrarprojetos');
+    }
+
+
 }
 
 
+?>

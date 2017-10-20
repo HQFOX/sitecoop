@@ -1,5 +1,8 @@
 <?php
-class Home extends CI_Controller {
+
+class Contactos extends CI_Controller
+{
+
 
     public function __construct()
     {
@@ -9,19 +12,15 @@ class Home extends CI_Controller {
         $this->load->helper('url_helper');
     }
 
-    public function index()
+    public function index() //index é o metodo default
     {
-        $data['projetos'] = $this->NovosProjectos_model->getProjetos();
-        $data['ultimoProjeto'] = $this->NovosProjectos_model->getUltimoProjeto();
+        $data['projetos']  = $this->NovosProjectos_model->getProjetos();
         $contactos['numeros'] = $this->Contactos_model->get_ntelefones();
         $contactos['emails'] = $this->Contactos_model->get_emails();
 
+
         $this->load->view('templates/header', $data);
-        $this->load->view('news/home', $data);
-        $this->load->view('templates/footer', $contactos);
+        $this->load->view('news/contactos', $contactos);
+        $this->load->view('templates/footer');
     }
-
-
-
-
 }

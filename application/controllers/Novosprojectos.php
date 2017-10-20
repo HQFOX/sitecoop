@@ -5,6 +5,7 @@ class Novosprojectos extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('NovosProjectos_model');
+        $this->load->model('Contactos_model');
         $this->load->helper('url_helper');
     }
 
@@ -26,5 +27,16 @@ class Novosprojectos extends CI_Controller {
         $this->load->view('templates/header', $data);
         $this->load->view('news/novosProjectos');
         $this->load->view('templates/footer');
+    }
+
+    public function contatos()
+    {
+        $data['projetos']  = $this->NovosProjectos_model->getProjetos();
+
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('contatos');
+        $this->load->view('templates/footer');
+
     }
 }

@@ -25,26 +25,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  
 <body>
 
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="">WebSiteName</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/teste">Home</a></li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projetos em iniciação
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <?php
-                    foreach ($projetos as $nome): ?>
-                        <li><a href="/teste/index.php/novosprojectos/getprojeto/<?php echo $nome['id'] ?>"><?php echo $nome['nome'] ?></a></li>
-                    <?php endforeach; ?>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="">WebSiteName</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/teste">Home</a>
+                <li class="dropdown">
+                    <a class="dropdown-toggle nav-item" data-toggle="dropdown" href="#">Projetos em iniciação
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <?php
+                        foreach ($projetos as $nome): ?>
+                            <li><a class="nav-link" href="/teste/index.php/novosprojectos/getprojeto/<?php echo $nome['id'] ?>"><?php echo $nome['nome'] ?></a></li>
+                        <?php endforeach; ?>
 
-                </ul>
-            </li>
-            <li><a href="#">Histórico</a></li>
-            <li><a href="#">Contactos</a></li>
-        </ul>
-    </div>
-</nav>
+                    </ul>
+                </li>
+                <li><a class="nav-link" href="#">Histórico</a></li>
+                <li><a class="nav-link" href="/teste/index.php/contactos">Contactos</a></li>
+                </li>
+            </ul>
+        </div>
+    </nav>

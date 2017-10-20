@@ -20,14 +20,10 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-sm-6">
-            <h1>LIVEDOTCOM</h1>
+            <h1>Pagina de administrador</h1>
         </div>
         <div class="col-lg-6 col-sm-6">
 
-            <ul class="nav nav-pills pull-right" style="margin-top:20px">
-                <li class="active"><a href="#">Login</a></li>
-                <li><a href="#">Signup</a></li>
-            </ul>
 
         </div>
     </div>
