@@ -1,6 +1,18 @@
-<h3>Admin Dashboard</h3>
+<div class="container">
+    <h3>Pagina de administração do site</h3>
 
-<div>
-    <a href="/teste/index.php/admin/administrarprojetos/" <button type="button" class="btn btn-primary">Projetos</button>
-    <a href="#" <button type="button" class="btn btn-primary">Contactos</button>
+    <div>
+        <a href="/teste/index.php/admin/administrarprojetos/" <button type="button" class="btn btn-primary">Projetos</button></a>
+        <a href="#" <button type="button" class="btn btn-primary">Contactos</button></a>
+
+        <div>
+            <h3>debug base de dados: <?php print_r( $inscritos); ?></h3>
+        </div>
+        <?php if(count($inscritos) == 0)
+        {
+            echo '<a href="/teste/index.php/admin/administrarinscricoes/" <button type="button" class="btn btn-primary">Não existem novos inscritos</button></a>';
+        }
+        else{ echo '<a href="/teste/index.php/admin/administrarinscricoes/" <button type="button" class="btn btn-primary">Existem novos inscritos</button></a> '; }?>
+
+    </div>
 </div>

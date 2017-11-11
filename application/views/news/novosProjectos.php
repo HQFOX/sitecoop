@@ -18,4 +18,4 @@
 ?>
 <?php
         if ($inscritos < $limite)
-        {?><h3><a href="/teste/index.php/preinscricao"> Pré-inscrição disponivel </a></h3> <?php } ?>
+        {?><h3><a href="/teste/index.php/novosprojectos/preinscricao/<?php echo $projeto[0]['id'] ?>"> Pré-inscrição disponivel </a></h3> <?php } ?>

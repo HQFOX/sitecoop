@@ -27,6 +27,7 @@ class Admin extends CI_Controller {
         if(isset($_SESSION['login']) == TRUE)
         {
             $data['projetos']  = $this->Admin_model->getProjetos();
+            $data['inscritos'] = $this->Admin_model->getInscritos();
 
 
             $this->load->model('Admin_model');
@@ -54,7 +55,7 @@ class Admin extends CI_Controller {
             /*$this->load->view('news/adminProjetos', $data);*/
 
 
-            $nome_projeto = $this->input->post("nome");
+            $nome_projeto = $this->input->post("nome_projeto");
             $localizacao = $this->input->post("localizacao");
             $tipologia = $this->input->post("tipologia");
             $valor = $this->input->post("valor");
@@ -89,7 +90,7 @@ class Admin extends CI_Controller {
             //verificacao do input
 
 
-            if ($this->input->post('btn_login') == "Login")
+            if ($this->input->post('btn_login') == "Submeter")
             {
 
                 if ($this->form_validation->run() == FALSE)
@@ -104,7 +105,7 @@ class Admin extends CI_Controller {
                         'nome' => $nome_projeto,
                         'localizacao' => $localizacao,
                         'tipologia' => $tipologia,
-                        'valor' => $valor,
+                        'valor' => intval($valor),
                         'nquartos' => $nquartos,
 
                         'ninscritos' => $ninscritos,
@@ -114,6 +115,7 @@ class Admin extends CI_Controller {
 
                     $this->Admin_model->exemplo($input);
                     echo json_encode($input);
+                    redirect('index.php/admin/administrarprojetos');
 
                 }
             }
@@ -132,11 +134,58 @@ class Admin extends CI_Controller {
 
 
     }
-    public function delete($id){
+    public function deleteProjeto($id){
+
+        //verificar se o login foi feito
+        if(isset($_SESSION['login']) == TRUE)
+        {
+            $this->Admin_model->delProjeto($id);
+            redirect('index.php/admin/administrarprojetos');
+        }
+    }
+    public function deleteInscrito($id){
+
+        //verificar se o login foi feito
+        if(isset($_SESSION['login']) == TRUE)
+        {
+            $this->Admin_model->delInscrito($id);
+            redirect('index.php/admin/administrarinscricoes');
+        }
+    }
+    public function setInscrito($id,$value){
+        if(isset($_SESSION['login']) == TRUE)
+        {
+            $this->Admin_model->setInscrito($value,$id);
+            redirect('index.php/admin/administrarinscricoes');
+        }
+    }
 
 
-        $this->Admin_model->delProjeto($id);
-        redirect('index.php/admin/administrarprojetos');
+    public function administrarInscricoes(){
+        //verificar se o login foi feito
+        if(isset($_SESSION['login']) == TRUE)
+        {
+            $data['projetos']  = $this->Admin_model->getProjetos();
+            $data['inscritos'] = $this->Admin_model->getInscritos();
+
+            /* $data['inscritosprojeto'] = $this->Admin_model->getInscritosProjeto();*/
+           //print_r (($data['projetos'][1]['nome']));
+
+ /*          for($i=0;$i<count($data['projetos']);$i++)
+           {
+               $data['projetosinscritos']=$this->Admin_model->getInscritosProjeto($data['projetos'][$i]['id']);
+           }*/
+
+
+            $this->load->model('Admin_model');
+            $this->load->view('templates/header', $data);
+            $this->load->view('news/adminInscricoes', $data);
+
+        }
+        else{
+            redirect('index.php/login');
+        }
+
     }
 
 

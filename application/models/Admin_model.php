@@ -30,10 +30,50 @@ class admin_model extends CI_Model
 
     public function delProjeto($id)
     {
-        $this->db->query("DELETE FROM Projeto WHERE id = '$id';");
-
+       // $this->db->query("DELETE FROM Projeto WHERE idI = '$id';");
+        $this->db->where('id',$id);
+        $this->db->delete('Projeto');
 
 
     }
 
+    public function getInscritos()
+
+    {
+        $query = $this->db->query("SELECT * FROM Inscricoes WHERE inscrito =0;");
+
+        return $query->result_array();
+    }
+
+    public function delInscrito($id)
+    {
+        $this->db->query("DELETE FROM Inscricoes WHERE idI = '$id';");
+
+
+
+    }
+    public function getInscritosProjeto()
+    {
+        $query = $this->db->query("select nomeI,email,telefone  FROM Projeto INNER JOIN Inscricoes WHERE projetoId = id; ");
+
+
+        return $query->result_array();
+    }
+
+
+    public function setInscrito($value,$id)
+    {
+        if($value ==1)
+        {
+            $this->db->set('inscrito', $value);
+            $this->db->insert('Inscricoes');
+            $this->db->where('idI',$id);
+        }
+        elseif ($value ==0)
+        {
+            $this->db->set('inscrito', $value);
+            $this->db->insert('Inscricoes');
+            $this->db->where('idI',$id);
+        }
+    }
 }

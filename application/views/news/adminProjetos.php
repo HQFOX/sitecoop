@@ -1,6 +1,12 @@
+<div class="container">
 <h3>Admin Dashboard Projetos</h3>
+    <a href="/teste/index.php/admin">
+        <button type="button" class="btn btn-default">Voltar</button>
+    </a>
+</div>
 
-<div>
+
+<div class="container">
     <table class="table table-hover">
         <thead>
         <tr>
@@ -35,16 +41,18 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Modal Header</h4>
+                                    <h4 class="modal-title">Apagar Projeto</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <a href="delete/<?php echo $projetos['id']; ?>">
-                                        <p>Some text in the modal.</p>
+                                    <p>tem a certeza que quer apagar o projeto?</p>
+                                    <a href="/teste/index.php/admin/deleteprojeto/<?php echo $projetos['id']; ?>">
+                                        <button type="button" class="btn btn-default">Sim</button>
                                     </a>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
                                 </div>
-                                <div class="modal-footer">
+ <!--                               <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
+                                </div>-->
                             </div>
 
                         </div>
@@ -56,7 +64,7 @@
     </table>
 </div>
 
-<div>
+<div class="container">
     <?php
     echo form_open("index.php/admin/administrarprojetos");?>
         <fieldset>
@@ -85,13 +93,19 @@
                 </div>
             </div>
 
+
             <div class="form-group">
                 <div class="row colbox">
                     <div class="col-lg-4 col-sm-4">
                         <label for="localizacao" class="control-label">Tipologia</label>
                     </div>
                     <div class="col-lg-8 col-sm-8">
-                        <input class="form-control" id="tipologia" name="tipologia" placeholder="tipologia" type="text" value="<?php echo set_value('tipologia'); ?>" />
+
+
+                            <label class="radio-inline"><input type="radio" name="tipologia" checked="">Vivenda <?php echo  set_radio('tipologia', '1'); ?></label>
+                            <label class="radio-inline"><input type="radio" name="tipologia">Apartamento <?php echo  set_radio('tipologia', '2'); ?> </label>
+                            <label class="radio-inline"><input type="radio" name="tipologia">Outro <?php echo  set_radio('tipologia', '3'); ?></label>
+
                         <span class="text-danger"><?php echo form_error('tipologia'); ?></span>
                     </div>
                 </div>
@@ -149,7 +163,7 @@
 
             <div class="form-group">
                 <div class="col-lg-12 col-sm-12 text-center">
-                    <input id="btn_login" name="btn_login" type="submit" class="btn btn-default" value="Login" />
+                    <input id="btn_login" name="btn_login" type="submit" class="btn btn-default" value="Submeter" />
                     <input id="btn_cancel" name="btn_cancel" type="reset" class="btn btn-default" value="Cancel" />
                 </div>
             </div>
