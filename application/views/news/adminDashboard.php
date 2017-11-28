@@ -2,7 +2,7 @@
     <h3>Pagina de administração do site</h3>
 
     <div>
-        <a href="/teste/index.php/admin/administrarprojetos/" <button type="button" class="btn btn-primary">Projetos</button></a>
+        <a href="<?php echo base_url()?>/index.php/admin/administrarprojetos/" <button type="button" class="btn btn-primary">Projetos</button></a>
         <a href="#" <button type="button" class="btn btn-primary">Contactos</button></a>
 
         <div>
@@ -10,9 +10,9 @@
         </div>
         <?php if(count($inscritos) == 0)
         {
-            echo '<a href="/teste/index.php/admin/administrarinscricoes/" <button type="button" class="btn btn-primary">Não existem novos inscritos</button></a>';
+            echo '<a href="/sitecoop/index.php/admin/administrarinscricoes/" <button type="button" class="btn btn-primary">Não existem novos inscritos</button></a>';
         }
-        else{ echo '<a href="/teste/index.php/admin/administrarinscricoes/" <button type="button" class="btn btn-primary">Existem novos inscritos</button></a> '; }?>
+        else{ echo '<a href="/sitecoop/index.php/admin/administrarinscricoes/" <button type="button" class="btn btn-primary">Existem novos inscritos</button></a> '; }?>
 
     </div>
 </div>

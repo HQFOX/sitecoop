@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>tem a certeza que quer alterar a inscrição</p>
-                                    <a href="/teste/index.php/admin/setinscrito/<?php echo $inscritos[$j]['idI']; ?>/<?php echo $inscritos[$j]['inscrito']; ?>">
+                                    <a href="<?php echo base_url()?>/index.php/admin/setinscrito/<?php echo $inscritos[$j]['idI']; ?>/<?php echo $inscritos[$j]['inscrito']; ?>">
                                         <button type="button" class="btn btn-default">Sim</button>
                                     </a>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <p>tem a certeza que quer apagar o inscrito?</p>
-                                        <a href="/teste/index.php/admin/deleteinscrito/<?php echo $inscritos['idI']; ?>">
+                                        <a href="<?php echo base_url()?>/index.php/admin/deleteinscrito/<?php echo $inscritos['idI']; ?>">
                                             <button type="button" class="btn btn-default">Sim</button>
                                         </a>
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>tem a certeza que quer apagar o inscrito?</p>
-                                    <a href="/teste/index.php/admin/deleteinscrito/<?php echo $inscritos['idI']; ?>">
+                                    <a href="<?php echo base_url()?>/index.php/admin/deleteinscrito/<?php echo $inscritos['idI']; ?>">
                                         <button type="button" class="btn btn-default">Sim</button>
                                     </a>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
