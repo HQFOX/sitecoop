@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>BETA</title>
+    <title>Cooperativa Giraldo Sem Pavor</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="icon" href="<?php echo base_url()?>/assets/images/favicon-32x32.png">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -18,16 +19,26 @@
 
 
 
+<body class="set<?php echo ($background); ?>">
+    <nav class="navbar navbar-toggleable-md navbar-light" style="padding: 0; background-color:white;">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand " style="padding-left: 8%; padding-top: 20px; padding-bottom: 10px; height: 10%; width: 35%" href="#"><img class="img-fluid" style="padding-right: 20%;" src="<?php echo base_url()?>/assets/images/logowhitebackground.png" alt=""></a>
 
-<body>
-    <nav class="navbar navbar-default">
-        <div id="header" class="row" style="height:70px">
-                <div class="header-li col-sm-2">Imagem</div>
-            <div class="col-sm-2"><div class="botao" style="margin-top: 10%"><a href="/sitecoop">Pagina Inicial</a></div></div>
-            <div class=" col-sm-2"><div class="botao" style="margin-top: 10%" ><a href="/sitecoop">Historico</a></div></div>
-            <div class=" col-sm-2"><div class="botao" style="margin-top: 10%" ><a href="/sitecoop/index.php/novosprojectos">Projetos em Iniciação</a></div></div>
-            <div class=" col-sm-2"><div class="botao" style="margin-top: 10%" ><a href="/sitecoop/index.php/contactos">Contactos</a></div></div>
-
-
+        <div class="collapse navbar-collapse nav-justified" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-justified  " style="width: 100%">
+                <li class="nav-item  nav-justified">
+                    <a href="/sitecoop/"><b class="botao">Pagina Inicial</b></a>
+                </li>
+                <li class="nav-item nav-justified">
+                    <a  href="/sitecoop/index.php/novosprojectos"><b class="botao">Projetos em Iniciação</b></a>
+                <li class="nav-item nav-justified">
+                    <b class="botao"> <a href="/sitecoop">Historico</a></b>
+                </li>
+                <li class="nav-item  nav-justified">
+                    <a href="/sitecoop/index.php/contactos"><b class="botao">Contactos</b></a>
+                </li>
+            </ul>
         </div>
     </nav>

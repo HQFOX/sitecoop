@@ -13,12 +13,11 @@ class Home extends CI_Controller {
     {
         $data['projetos'] = $this->NovosProjectos_model->getProjetos();
         $data['ultimoProjeto'] = $this->NovosProjectos_model->getUltimoProjeto();
-        $contactos['numeros'] = $this->Contactos_model->get_ntelefones();
-        $contactos['emails'] = $this->Contactos_model->get_emails();
+        $data['background'] = 2;
 
         $this->load->view('templates/header', $data);
         $this->load->view('news/home', $data);
-        $this->load->view('templates/footer', $contactos);
+        $this->load->view('templates/footer');
     }
 
 

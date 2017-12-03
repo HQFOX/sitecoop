@@ -16,20 +16,21 @@ class Novosprojectos extends CI_Controller {
         $data['projetos']  = $this->NovosProjectos_model->getProjetos();
         $contactos['numeros'] = $this->Contactos_model->get_ntelefones();
         $contactos['emails'] = $this->Contactos_model->get_emails();
+        $data['background'] = 3;
 
         $this->load->view('templates/header', $data);
         $this->load->view('news/novosProjetosMenu', $data);
-
+        $this->load->view('templates/footer');
     }
 
     public function getProjeto($id)
     {
         $data['projeto']  = $this->NovosProjectos_model->getProjeto($id);
-        $contactos['numeros'] = $this->Contactos_model->get_ntelefones();
-        $contactos['emails'] = $this->Contactos_model->get_emails();
+        $data['background'] = 4;
 
         $this->load->view('templates/header', $data);
         $this->load->view('news/novosProjectos');
+        $this->load->view('templates/footer');
     }
 
     public function preInscricao($id_projeto)
@@ -37,6 +38,7 @@ class Novosprojectos extends CI_Controller {
         $data['projeto']  = $this->NovosProjectos_model->getProjeto($id_projeto);
         $contactos['numeros'] = $this->Contactos_model->get_ntelefones();
         $contactos['emails'] = $this->Contactos_model->get_emails();
+        $data['background'] = 1;
 
         $this->load->view('templates/header', $data);
         $this->load->model('PreInscricao_model');
@@ -88,6 +90,7 @@ class Novosprojectos extends CI_Controller {
 
 
         $this->load->view('news/preInscricao', $id_projeto);
+        $this->load->view('templates/footer');
     }
 
 

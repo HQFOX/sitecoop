@@ -1,42 +1,63 @@
-.header-div{
-
-    padding-top: 30%;
-    padding-left: 10%;
-    display:inline-block;
+@font-face {
+    font-family: Moon;
+    scr: url("../fonts/Moon Bold.otf") format("opentype");
+}
+.set4 {
+    height: 100%;
+    background-color: #f4f4f4;
 }
 
-.header-li{
-
-    display: inline-block;
-    height:100px;
-    padding-top: 30%;
-    padding-left: 10%;
-    padding-right: 10%;
-
+.set3 {
+    height: 100%;
+    background: url("../images/backgrounds/background3.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.set2{
+    height: 100%;
+    background: url("../images/backgrounds/background2.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
-.header-ul{
-    float: left;
-    width: 100%;
-    height: 100px;
+.set1{
+    height: 100%;
+    background: url("../images/backgrounds/background1.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
+
+.set0{
+    height: 100%;
+
+}
+
 .botao{
+
+
+    font-family: "Aileron Bold";
     background-color: transparent;
     border-style: solid;
     border-width: 1px;
-    color: black;
-    padding: 2%;
-    padding-right: 5%;
-    padding-left: 5%;
+    padding:2%;
+    color: darkgray;
+    white-space: nowrap;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 80%;
-    margin: 4% 2%;
     border-radius: 32px;
 }
+
+
 
 a {
     color: inherit;
@@ -48,6 +69,20 @@ a:hover {
     text-decoration: none;
 }
 
+.titulo-menu-projetos {
+
+    font-family: Moon;
+    font-weight: bold;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.titulo-home {
+    font-family: Moon;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
 .menu-projetos {
     right: 0;
     margin: 0 0 4px;
@@ -63,6 +98,13 @@ a:hover {
     padding-right: 2px!important;
     padding-left: 2px!important;
 }
+.icone {
+    margin-bottom: 3px;
+    display:inline-block;position:relative; padding-right:2em;
+    font-family: Moon;
+}
+
+
 
 .sublinhado {
     border: none;
@@ -81,10 +123,44 @@ a:hover {
     height: 4px;
     /* Set the hr color */
     color: #333; /* old IE */
-    background-color: #333; /* Modern Browsers */
+    background-color: white; /* Modern Browsers */
     padding-top: 0;
     margin-top: 0;
 
+}
+
+.sublinhado-home {
+
+    border-radius: 32px;
+    height: 2px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: black; /* Modern Browsers */
+    padding-top: 0;
+    margin-top: 0;
+}
+.projeto{
+    margin-left: 5%;
+    margin-bottom:10%;
+    background-image: url(../images/ferramentas.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.form-control{
+    border-color: white;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+}
+
+.pre-inscricao-submit{
+    background-color: transparent;
+    float:right;
+    border-color: white;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
 }
 
 .descricao-projeto {

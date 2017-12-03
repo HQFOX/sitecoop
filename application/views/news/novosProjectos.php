@@ -2,13 +2,13 @@
     <div class="container" style="margin-top: 10%; margin-bottom: 10%; margin-left: 12%; margin-right: 12% height: 100%">
         <div class="row">
             <div class="col-sm-5" style="margin-bottom:10%;">
-                <h5 style="margin-bottom: 3px">PROJETOS</h5>
+                <h5 class="icone">PROJETOS<span><img style="height: 10%;width:10%;" src='<?php echo base_url()?>/assets/images/ferramenta.png'/></span></h5>
                 <hr class="sublinhado" style="margin-bottom: 40px">
-                <h5><?php echo $projeto[0]['nome'] ?></h5>
+                <h5 style="font-family: Aileron;"><?php echo $projeto[0]['nome'] ?></h5>
                 <img class="img-fluid" src="<?php echo base_url()?>/assets/images/exemplo1.jpg" alt="">
 
             </div>
-            <div class="col-sm-5" style="margin-left: 5%; margin-bottom:10%;">
+            <div class="col-sm-5 projeto">
                 <div class="descricao-projeto" style="margin-top: 20%;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
                     nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
                     volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullam-
