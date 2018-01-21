@@ -17,7 +17,7 @@ class Contactos extends CI_Controller
         $data['projetos']  = $this->NovosProjectos_model->getProjetos();
         $contactos['numeros'] = $this->Contactos_model->get_ntelefones();
         $contactos['emails'] = $this->Contactos_model->get_emails();
-
+        $data['background'] = 3;
 
         $this->load->view('templates/header', $data);
         $this->load->view('news/contactos', $contactos);

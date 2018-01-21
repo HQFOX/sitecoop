@@ -1,20 +1,50 @@
+<?php print_r($ntelefones); ?>
+<?php print_r($emails); ?>
 <div>
+    <a href="/sitecoop/index.php/admin">
+        <button type="button" class="btn btn-default">Voltar</button>
+    </a>
     <div class=" col-sm-4" style="margin-left: 35%; margin-top:8%;">
-        <h2 style="font-family:'Aileron Light';color:white; text-align: center">PRÉ-INSCRIÇÃO</h2>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Numeros de telefone</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($ntelefones as $telefone){
+                if($telefone['ntelefones']!= null){?>
+            <tr>
+                <td><?php print_r($telefone['ntelefones'])?></td>
+            </tr>
+            <?php }}?>
+            </tbody>
+        </table>
+    </div>
+    <div class=" col-sm-4" style="margin-left: 35%; margin-top:8%;">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Emails</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($emails as $email){
+                if($email['emails']!= null){?>
+                    <tr>
+                        <td><?php print_r($email['emails'])?></td>
+                    </tr>
+                <?php }}?>
+            </tbody>
+        </table>
+    </div>
+    <div class=" col-sm-4" style="margin-left: 35%; margin-top:8%;">
+        <h2 style="font-family:'Aileron Light';color:white; text-align: center">ADCICIONAR</h2>
         <hr class="sublinhado-preinscricao">
-        <h2 style="font-family:'Moon';font-weight: bold;color:white; text-align: center">CONTACTE-NOS</h2>
+        <h2 style="font-family:'Moon';font-weight: bold;color:white; text-align: center">CONTACTOS</h2>
         <?php
-        echo form_open("index.php/novosprojectos/preinscricao/" .$projeto[0]['id']);?>
+        echo form_open("index.php/admin/administrarcontactos");?>
         <fieldset style="margin-top:10%;padding-left:5% ; padding-right:5%;">
-            <legend style="font-family: Aileron;color:white;">Projeto: <?php echo $projeto[0]['nome']?></legend>
-            <div class="form-group">
-                <div class="row colbox">
-                    <div style="width: 100%">
-                        <input class="form-control" id="nome" name="nome" placeholder="Nome" type="text" value="<?php echo set_value('nome'); ?>" />
-                        <span class="text-danger"><?php echo form_error('nome'); ?></span>
-                    </div>
-                </div>
-            </div>
 
             <div class="form-group">
                 <div class="row colbox">

@@ -11,7 +11,7 @@ class contactos_model extends CI_Model
     function get_ntelefones()
     {
 
-        $this->db->select('numero')->from('numeros_telefone');
+        $this->db->select('ntelefones')->from('contactos');
         $query = $this->db->get();
 
 
@@ -19,10 +19,16 @@ class contactos_model extends CI_Model
 
     }
 
+    function add_contactos($data)
+    {
+        $this->db->insert('contactos', $data);
+    }
+
+
     function get_emails()
     {
 
-        $this->db->select('email')->from('emails');
+        $this->db->select('emails')->from('contactos');
         $query = $this->db->get();
 
 

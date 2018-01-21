@@ -85,14 +85,14 @@ a:hover {
 }
 .menu-projetos {
     right: 0;
-    margin: 0 0 4px;
+    margin-bottom: 6px;
+    padding-left: 2px;
+    padding-right: 2px;
 
 }
 .menu-projetos .menu-item {
     position: relative;
     display: block;
-    max-width: 400px;
-    margin: 0 auto;
 }
 .nopadding {
     padding-right: 2px!important;
@@ -102,6 +102,11 @@ a:hover {
     margin-bottom: 3px;
     display:inline-block;position:relative; padding-right:2em;
     font-family: Moon;
+}
+
+.square {
+    height: 300px;
+    width: 100%;
 }
 
 
@@ -156,8 +161,9 @@ a:hover {
 
 .pre-inscricao-submit{
     background-color: transparent;
-    float:right;
     border-color: white;
+    color:white;
+    float:right;
     -webkit-border-radius: 14px;
     -moz-border-radius: 14px;
     border-radius: 14px;

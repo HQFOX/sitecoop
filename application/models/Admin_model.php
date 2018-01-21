@@ -9,7 +9,7 @@ class admin_model extends CI_Model
     }
 
 
-    function exemplo($data)
+    function insertProjeto($data)
     {
 
 
@@ -26,6 +26,32 @@ class admin_model extends CI_Model
             ->get();
 
         return $query->result_array();
+    }
+
+    public function getUltimoProjetoId()
+    {
+        $query = $this->db->select_max('id')
+            ->from('Projeto')
+            ->get();
+        return $query->result_array();
+    }
+
+    public function getProjeto($id)
+
+    {
+        $query = $this->db->select('*')
+            ->from('Projeto')
+            ->where('id',$id)
+            ->get();
+
+        return $query->result_array();
+    }
+
+    public function updateProjeto($id,$data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('Projeto', $data);
+
     }
 
     public function delProjeto($id)
@@ -47,7 +73,7 @@ class admin_model extends CI_Model
 
     public function delInscrito($id)
     {
-        $this->db->query("DELETE FROM Inscricoes WHERE idI = '$id';");
+        $this->db->query("DELETE FROM Inscricoes WHERE id = '$id';");
 
 
 
@@ -67,13 +93,13 @@ class admin_model extends CI_Model
         {
             $this->db->set('inscrito', $value);
             $this->db->insert('Inscricoes');
-            $this->db->where('idI',$id);
+            $this->db->where('id',$id);
         }
         elseif ($value ==0)
         {
             $this->db->set('inscrito', $value);
             $this->db->insert('Inscricoes');
-            $this->db->where('idI',$id);
+            $this->db->where('id',$id);
         }
     }
 }

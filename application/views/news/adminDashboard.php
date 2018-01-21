@@ -3,7 +3,7 @@
 
     <div>
         <a href="<?php echo base_url()?>/index.php/admin/administrarprojetos/" <button type="button" class="btn btn-primary">Projetos</button></a>
-        <a href="#" <button type="button" class="btn btn-primary">Contactos</button></a>
+        <a href="<?php echo base_url()?>/index.php/admin/administrarcontactos" <button type="button" class="btn btn-primary">Contactos</button></a>
 
         <div>
             <h3>debug base de dados: <?php print_r( $inscritos); ?></h3>

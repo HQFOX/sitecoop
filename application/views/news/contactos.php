@@ -1,12 +1,15 @@
 <p>contactos </p>
 
-<?php print_r( $numeros);
-    echo $numeros[0]['numero'];
 
-?>
-
-<h3>numero de telefone: <?php echo $numeros[0]['numero'] ?></h3>
-
-<h3>email: <?php echo $emails[0]['email'] ?></h3>
+<h3>numero de telefone:</h3>
+<?php foreach ($numeros as $telefone){
+    if($telefone['ntelefones']!= null){?>
+    <h4><?php echo($ntelefone)?></h4>
+<?php } }?>
+<h3>email:</h3>
+<?php foreach ($emails as $email){
+    if($email['emails']!= null){?>
+    <h4><?php echo($email['emails'])?></h4>
+<?php } }?>
 
 

@@ -7,10 +7,10 @@
 
             <div class="row" style="margin-bottom: 0px">
                 <?php foreach ($projetos as $projetos): ?>
-                    <div class="col-sm-6 menu-projetos nopadding">
-                        <div class="menu-item">
+                    <div class="col-sm-6 menu-projetos text-center">
+                        <div class="">
                             <a href="/sitecoop/index.php/novosprojectos/getprojeto/<?php echo $projetos['id'];?>">
-                                <img class="img-fluid" src="<?php echo base_url()?>/assets/images/exemplo1.jpg" alt="">
+                                <img class="img-fluid square" style="max-height: 100%; max-width: 100%; object-fit: cover;" src="<?php echo base_url()?>/uploads/<?php echo $projetos['id'];?>/fotoperfil.jpg" alt="">
                             </a>
                         </div>
                     </div>
