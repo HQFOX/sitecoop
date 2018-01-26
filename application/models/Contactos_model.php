@@ -11,7 +11,7 @@ class contactos_model extends CI_Model
     function get_ntelefones()
     {
 
-        $this->db->select('ntelefones')->from('contactos');
+        $this->db->select('ntelefones, id')->from('contactos');
         $query = $this->db->get();
 
 
@@ -28,11 +28,23 @@ class contactos_model extends CI_Model
     function get_emails()
     {
 
-        $this->db->select('emails')->from('contactos');
+        $this->db->select('emails, id')->from('contactos');
         $query = $this->db->get();
 
 
         return $query->result_array();
+
+    }
+    function del_ntelefone($id)
+    {
+        $this->db->where('id',$id);
+        $this->db->delete('contactos');
+
+    }
+    function del_email($id)
+    {
+        $this->db->where('id',$id);
+        $this->db->delete('contactos');
 
     }
 }

@@ -1,5 +1,4 @@
-<div class="container">
-    <h3>Admin Dashboard Projetos</h3>
+<div class="container" style="margin-top: 50px">
     <a href="/sitecoop/index.php/admin/administrarprojetos">
         <button type="button" class="btn btn-default">Voltar</button>
     </a>
@@ -9,7 +8,9 @@
     <?php
     echo form_open_multipart("index.php/admin/adicionarprojetos");?>
     <fieldset>
-        <legend>Inserir Projeto</legend>
+        <legend>       <h2 style="font-family:'Aileron Light';color:white; text-align: center">INSERIR</h2>
+            <hr class="sublinhado-preinscricao">
+            <h2 style="font-family:'Moon';font-weight: bold;color:white; text-align: center">PROJETOS</h2></legend>
         <div class="form-group">
             <div class="row colbox">
                 <div class="col-lg-4 col-sm-4">
@@ -101,7 +102,16 @@
         </div>
 
         <div>
-            <input type="file" name="userfile" size="20" />
+            <div class="form-group">
+                <div class="row colbox">
+                    <div class="col-lg-4 col-sm-4">
+                        <label for="localizacao" class="control-label">Adicionar Foto de menu</label>
+                    </div>
+                    <div class="col-lg-8 col-sm-8">
+                        <input type="file" name="userfile" size="20" />
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="form-group">

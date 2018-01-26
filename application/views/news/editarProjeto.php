@@ -1,11 +1,16 @@
 
-<div class="container">
+<div class="container" style="margin-top: 50px">
+    <a href="/sitecoop/index.php/admin/administrarprojetos">
+        <button type="button" class="btn btn-default">Voltar</button>
+    </a>
     <?php
     $x =strval($projeto[0]['id']);
     echo form_open("index.php/admin/editarprojeto/$x ");?>
         <fieldset>
-            <legend>Inserir Projeto</legend>
-            <div class="form-group">
+            <legend>       <h2 style="font-family:'Aileron Light';color:white; text-align: center">EDITAR</h2>
+                <hr class="sublinhado-preinscricao">
+                <h2 style="font-family:'Moon';font-weight: bold;color:white; text-align: center">PROJETOS</h2></legend>
+            <div class="form-group" style="margin-top: 50px">
                 <div class="row colbox">
                     <div class="col-lg-4 col-sm-4">
                         <label for="nome_projeto" class="control-label">Nome Projeto</label>
@@ -106,5 +111,8 @@
         </fieldset>
     <?php echo form_close(); ?>
     <?php echo $this->session->flashdata('msg'); ?>
+    <div>Editar fotos projecção</div>
+    <div>Editar fotos planta</div>
+    <div>Editar foto menu</div>
 </div>
 

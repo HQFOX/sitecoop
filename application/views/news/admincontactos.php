@@ -1,11 +1,11 @@
 <?php print_r($ntelefones); ?>
 <?php print_r($emails); ?>
 <div>
-    <a href="/sitecoop/index.php/admin">
-        <button type="button" class="btn btn-default">Voltar</button>
-    </a>
     <div class=" col-sm-4" style="margin-left: 35%; margin-top:8%;">
-        <table class="table table-hover">
+        <a href="/sitecoop/index.php/admin">
+            <button type="button" class="btn btn-default">Voltar</button>
+        </a>
+        <table class="table table-hover" style="margin-top: 40px">
             <thead>
             <tr>
                 <th>Numeros de telefone</th>
@@ -16,6 +16,7 @@
                 if($telefone['ntelefones']!= null){?>
             <tr>
                 <td><?php print_r($telefone['ntelefones'])?></td>
+                <td><a href="<?php echo base_url(); ?>/index.php/admin/delnumero/<?php echo $telefone['id']; ?>"> APAGAR</a></td>
             </tr>
             <?php }}?>
             </tbody>
@@ -33,6 +34,7 @@
                 if($email['emails']!= null){?>
                     <tr>
                         <td><?php print_r($email['emails'])?></td>
+                        <td><a href="<?php echo base_url(); ?>/index.php/admin/delemail/<?php echo $email['id']; ?>"> APAGAR</a></td>
                     </tr>
                 <?php }}?>
             </tbody>

@@ -354,7 +354,7 @@ class Admin extends CI_Controller
             $this->load->model('Contactos_model');
             $this->load->view('templates/header', $data);
 
-            $ntelefone = $this->input->post("ntelefone ");
+            $ntelefone = $this->input->post("ntelefone");
             $email = $this->input->post("email");
 
 
@@ -384,6 +384,7 @@ class Admin extends CI_Controller
                     print_r($input);
                     $this->load->model('Contactos_model');
                     $this->Contactos_model->add_contactos($input);
+                    redirect('index.php/admin/administrarcontactos');
 
                 }
 
@@ -397,6 +398,34 @@ class Admin extends CI_Controller
 
     }
 
+    public function delemail($email)
+    {
+        //verificar se o login foi feito
+        if (isset($_SESSION['login']) == TRUE) {
+            $this->load->model('Contactos_model');
+            $this->Contactos_model->del_email($email);
+
+            redirect('index.php/admin/administrarcontactos');
+
+        } else {
+            redirect('index.php/login');
+        }
+    }
+
+
+
+    public function delnumero($numero)
+    {
+        //verificar se o login foi feito
+        if (isset($_SESSION['login']) == TRUE) {
+            $this->load->model('Contactos_model');
+            $this->Contactos_model->del_numero($numero);
+
+            redirect('index.php/admin/administrarcontactos');
+        } else {
+            redirect('index.php/login');
+        }
+    }
 }
 
 
