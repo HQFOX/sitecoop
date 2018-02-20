@@ -34,7 +34,23 @@
                     </tr>
                     <tr>
                         <td>
-                            LOCALIZAÇÃO:
+                            LOCALIDADE:
+                        </td>
+                        <td>
+                            BAIRRO:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <?php echo $projeto[0]['localidade'] ?>
+                        </td>
+                        <td>
+                            <?php echo $projeto[0]['bairro'] ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            RUA:
                         </td>
                         <td>
                             TIPOLOGIA:
@@ -42,10 +58,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <?php echo $projeto[0]['localizacao'] ?>
+                            <?php echo $projeto[0]['rua'] ?>
                         </td>
                         <td>
-                            <?php echo $projeto[0]['tipologia'] ?>
+                            <?php if($projeto[0]['tipologia']==1)echo "vivenda";if($projeto[0]['tipologia']==2)echo "apartamento";else echo "outro"; ?>
                         </td>
                     </tr>
                     <tr>
@@ -74,6 +90,15 @@
                 <?php } else {?>
                 <?php ;} ?>
             </div>
+        </div>
+        <div style="margin-top:90px">
+            <iframe
+                    width="550"
+                    height="350"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAKGONeQgb9ZNUA0am5RnH6NClU3KHExZA
+        &q=<?php echo $projeto[0]['bairro'] ?>+<?php echo $projeto[0]['rua'] ?>,<?php echo $projeto[0]['localidade'] ?>" allowfullscreen>
+            </iframe>
         </div>
     </div>
 </section>

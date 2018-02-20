@@ -6,6 +6,7 @@ class Home extends CI_Controller {
         parent::__construct();
         $this->load->model('NovosProjectos_model');
         $this->load->model('Contactos_model');
+        $this->load->model('Admin_model');
         $this->load->helper('url_helper');
     }
 
@@ -14,6 +15,7 @@ class Home extends CI_Controller {
         $data['projetos'] = $this->NovosProjectos_model->getProjetos();
         $data['ultimoProjeto'] = $this->NovosProjectos_model->getUltimoProjeto();
         $data['background'] = 2;
+        $data['sobre'] = $this->Admin_model->getSobre();
 
         $this->load->view('templates/header', $data);
         $this->load->view('news/home', $data);

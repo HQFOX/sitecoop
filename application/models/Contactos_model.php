@@ -37,14 +37,15 @@ class contactos_model extends CI_Model
     }
     function del_ntelefone($id)
     {
-        $this->db->where('id',$id);
-        $this->db->delete('contactos');
+        $sql = "UPDATE contactos SET ntelefones = null WHERE id = ?";
+        $this->db->query($sql, array($id));
+
 
     }
     function del_email($id)
     {
-        $this->db->where('id',$id);
-        $this->db->delete('contactos');
+        $sql = "UPDATE contactos SET emails = null WHERE id = ?";
+        $this->db->query($sql, array($id));
 
     }
 }

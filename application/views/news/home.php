@@ -1,13 +1,13 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
-            <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/assets/images/exemplo2.jpg" alt="First slide">
+            <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/carrossel/exemplo2.jpg" alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/assets/images/exemplo2.jpg" alt="Second slide">
+            <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/carrossel/exemplo2.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/assets/images/ferramenta.png" alt="Third slide">
+            <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/carrossel/ferramenta.png" alt="Third slide">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -28,16 +28,7 @@
         </div>
     </div>
     <div class="row">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tinci-
-        dunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
-        exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
-        vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feu-
-        giat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
-        zzril delenit augue duis dolore te feugait nulla facilisi.
-        Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tinci-
-        dunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
-        exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euis
+        <?php if(count($sobre)>0) echo $sobre[0]['sobre']; ?>
     </div>
     <div class="row">
         <div class="col-sm-5" style="margin:auto;">

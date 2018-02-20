@@ -1,10 +1,13 @@
-<div>
-    <div class=" col-sm-4" style="margin-left: 35%; margin-top:8%;">
+<div class="container" align="center">
+    <div class=" col-sm-12 center-block" style=" margin-top:12%;">
         <h2 style="font-family:'Aileron Light';color:white; text-align: center">PRÉ-INSCRIÇÃO</h2>
+        <div class=" col-sm-6">
         <hr class="sublinhado-preinscricao">
+        </div>
         <h2 style="font-family:'Moon';font-weight: bold;color:white; text-align: center">CONTACTE-NOS</h2>
         <?php
         echo form_open("index.php/novosprojectos/preinscricao/" .$projeto[0]['id']);?>
+        <div class=" col-sm-6" style="text-align: left">
         <fieldset style="margin-top:10%;padding-left:5% ; padding-right:5%;">
             <legend style="font-family: Aileron;color:white;">Projeto: <?php echo $projeto[0]['nome']?></legend>
             <div class="form-group">
@@ -41,5 +44,6 @@
                 </div>
             </div>
         </fieldset>
+        </div>
     </div>
 </div>

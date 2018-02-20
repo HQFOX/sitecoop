@@ -66,7 +66,7 @@ class admin_model extends CI_Model
     public function getInscritos()
 
     {
-        $query = $this->db->query("SELECT * FROM Inscricoes WHERE inscrito =0;");
+        $query = $this->db->query("SELECT * FROM Inscricoes");
 
         return $query->result_array();
     }
@@ -91,15 +91,34 @@ class admin_model extends CI_Model
     {
         if($value ==1)
         {
-            $this->db->set('inscrito', $value);
-            $this->db->insert('Inscricoes');
-            $this->db->where('id',$id);
+            $this->db->update('Inscricoes')
+                ->set('inscrito',0)
+                ->where('id',$id);
         }
         elseif ($value ==0)
         {
-            $this->db->set('inscrito', $value);
-            $this->db->insert('Inscricoes');
-            $this->db->where('id',$id);
+            $this->db->where('id',$id)
+                    ->set('inscrito',1)
+                    ->update('Inscricoes');
+
         }
+    }
+
+    public function insertPost($data){
+        $this->db->insert('post', $data);
+        echo "cona";
+    }
+
+    public function getSobre(){
+
+        $query = $this->db->select('*')
+            ->from('sobre')
+            ->order_by('id','desc')->limit(1)
+            ->get();
+        return $query->result_array();
+    }
+    public function insertSobre($data){
+        $this->db->insert('sobre',$data);
+
     }
 }

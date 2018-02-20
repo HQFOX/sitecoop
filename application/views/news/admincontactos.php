@@ -1,10 +1,14 @@
-<?php print_r($ntelefones); ?>
-<?php print_r($emails); ?>
-<div>
+<div class="container">
+    <a href="/sitecoop/index.php/admin">
+        <button type="button" class="btn btn-default">Voltar</button>
+    </a>
+    <div class=" col-sm-12" style="margin-top:8%;">
+        <h2 style="font-family:'Aileron Light';color:white; text-align: center">CONTACTOS</h2>
+        <hr class="sublinhado-preinscricao">
+    </div>
+
+
     <div class=" col-sm-4" style="margin-left: 35%; margin-top:8%;">
-        <a href="/sitecoop/index.php/admin">
-            <button type="button" class="btn btn-default">Voltar</button>
-        </a>
         <table class="table table-hover" style="margin-top: 40px">
             <thead>
             <tr>

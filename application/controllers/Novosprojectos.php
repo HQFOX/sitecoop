@@ -8,6 +8,7 @@ class Novosprojectos extends CI_Controller {
         $this->load->model('Contactos_model');
         $this->load->library('form_validation');
         $this->load->helper('url_helper');
+        $this->load->helper('email');
     }
 
     public function index() //index é o metodo default
@@ -50,8 +51,8 @@ class Novosprojectos extends CI_Controller {
         $this->form_validation->set_rules('nome', 'nome', 'required',
             array('required' => 'You must provide a %s.')
         );
-
-        $this->form_validation->set_rules('email', 'email', 'trim|required',
+        //pode ter que se tirar o xss_clean
+        $this->form_validation->set_rules('email', 'email', 'trim|max_length[30]|valid_email',
             array('required' => 'You must provide a %s.')
         );
 

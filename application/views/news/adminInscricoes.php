@@ -20,64 +20,14 @@
                         <td><?php echo $inscritos[$j]['nomeI']; ?></td>
                         <td><?php echo $inscritos[$j]['email']; ?></td>
                         <td><?php echo $inscritos[$j]['telefone']; ?></td>
-                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalInscrever">Inscrever</button></td>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="ModalInscrever" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Alterar Inscrição</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>tem a certeza que quer alterar a inscrição</p>
-                                        <a href="<?php echo base_url()?>/index.php/admin/setinscrito/<?php echo $inscritos[$j]['id']; ?>/<?php echo $inscritos[$j]['inscrito']; ?>">
-                                            <button type="button" class="btn btn-default">Sim</button>
-                                        </a>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                                    </div>
-                                    <!--                               <div class="modal-footer">
-                                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                   </div>-->
-                                </div>
-
-                            </div>
-                        </div>
-
-
-
-
-
-
                         <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modalapagar">Apagar</button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="Modalapagar" role="dialog">
-                                <div class="modal-dialog">
-
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Apagar Inscrito</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>tem a certeza que quer apagar o inscrito?</p>
-                                            <a href="<?php echo base_url()?>/index.php/admin/deleteinscrito/<?php echo $inscritos['idI']; ?>">
-                                                <button type="button" class="btn btn-default">Sim</button>
-                                            </a>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                                        </div>
-                                        <!--                               <div class="modal-footer">
-                                                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                       </div>-->
-                                    </div>
-
-                                </div>
-                            </div>
+                            <a href="<?php echo base_url() ?>/index.php/admin/setInscrito/<?php echo $inscritos[$j]['id'];?>/<?php echo $inscritos[$j]['inscrito']; ?>">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalInscrever"><?php if($inscritos[$j]['inscrito']==0) echo "Inscrever"; else echo "Desinscrever"; ?></button></td>
+                            </a>
+                        <td>
+                            <a href="<?php echo base_url() ?>/index.php/admin/deleteInscrito/<?php echo $inscritos[$j]['id']; ?>">
+                                 <button type="button" class="btn btn-primary" >Apagar</button>
+                            </a>
                         </td>
                  </tr>
                 <?php }
@@ -103,33 +53,14 @@
                 <td><?php echo $inscritos['email']; ?></td>
                 <td><?php echo $inscritos['telefone']; ?></td>
                 <td><?php echo $inscritos['projetoId']; ?></td>
-                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Editar</button></td>
                 <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Apagar</button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog">
-
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Apagar Inscrito</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>tem a certeza que quer apagar o inscrito?</p>
-                                    <a href="<?php echo base_url()?>/index.php/admin/deleteinscrito/<?php echo $inscritos['idI']; ?>">
-                                        <button type="button" class="btn btn-default">Sim</button>
-                                    </a>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                                </div>
-                                <!--                               <div class="modal-footer">
-                                                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                               </div>-->
-                            </div>
-
-                        </div>
-                    </div>
+                    <a href="<?php echo base_url() ?>/index.php/admin/editarinscricao ">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Editar</button></td>
+                    </a>
+                <td>
+                    <a href="<?php echo base_url() ?>/index.php/admin/deleteInscrito/<?php echo $inscritos['id']; ?>">
+                        <button type="button" class="btn btn-primary" >Apagar</button>
+                    </a>
                 </td>
             </tr>
         <?php endforeach; ?>

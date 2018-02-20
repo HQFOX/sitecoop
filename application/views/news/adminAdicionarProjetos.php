@@ -6,7 +6,7 @@
 
 <div class="container">
     <?php
-    echo form_open_multipart("index.php/admin/adicionarprojetos");?>
+    echo form_open_multipart("index.php/admin/projeccao");?>
     <fieldset>
         <legend>       <h2 style="font-family:'Aileron Light';color:white; text-align: center">INSERIR</h2>
             <hr class="sublinhado-preinscricao">
@@ -14,32 +14,58 @@
         <div class="form-group">
             <div class="row colbox">
                 <div class="col-lg-4 col-sm-4">
-                    <label for="nome_projeto" class="control-label">Nome Projeto</label>
+                    <label for="nome_projeto" class="control-label form_label">Nome Projeto</label>
                 </div>
                 <div class="col-lg-8 col-sm-8">
-                    <input class="form-control" id="nome_projeto" name="nome_projeto" placeholder="Nome Projeto" type="text" value="<?php echo set_value('nome_projeto'); ?>" />
+                    <input class="form-control " id="nome_projeto" name="nome_projeto" placeholder="Nome Projeto" type="text" value="<?php echo set_value('nome_projeto'); ?>" />
                     <span class="text-danger"><?php echo form_error('nome_projeto'); ?></span>
                 </div>
             </div>
         </div>
 
+
         <div class="form-group">
             <div class="row colbox">
                 <div class="col-lg-4 col-sm-4">
-                    <label for="localizacao" class="control-label">Localizacão</label>
+                    <label for="localidade" class="control-label form_label">Localidade</label>
                 </div>
                 <div class="col-lg-8 col-sm-8">
-                    <input class="form-control" id="localizacao" name="localizacao" placeholder="Localização" type="text" value="<?php echo set_value('localizacao'); ?>" />
-                    <span class="text-danger"><?php echo form_error('localizacao'); ?></span>
+                    <input class="form-control" id="localidade" name="localidade" placeholder="Localidade" type="text" value="<?php echo set_value('localidade'); ?>" />
+                    <span class="text-danger"><?php echo form_error('localidade'); ?></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row colbox">
+                <div class="col-lg-4 col-sm-4">
+                    <label for="bairro" class="control-label form_label">Bairro</label>
+                </div>
+                <div class="col-lg-8 col-sm-8">
+                    <input class="form-control" id="bairro" name="bairro" placeholder="Bairro" type="text" value="<?php echo set_value('bairro'); ?>" />
+                    <span class="text-danger"><?php echo form_error('bairro'); ?></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row colbox">
+                <div class="col-lg-4 col-sm-4">
+                    <label for="rua" class="control-label form_label">Rua</label>
+                </div>
+                <div class="col-lg-8 col-sm-8">
+                    <input class="form-control" id="rua" name="rua" placeholder="Rua" type="text" value="<?php echo set_value('rua'); ?>" />
+                    <span class="text-danger"><?php echo form_error('rua'); ?></span>
                 </div>
             </div>
         </div>
 
 
+
         <div class="form-group">
             <div class="row colbox">
                 <div class="col-lg-4 col-sm-4">
-                    <label for="localizacao" class="control-label">Tipologia</label>
+                    <label for="localizacao" class="control-label form_label">Tipologia</label>
                 </div>
                 <div class="col-lg-8 col-sm-8">
 
@@ -56,7 +82,7 @@
         <div class="form-group">
             <div class="row colbox">
                 <div class="col-lg-4 col-sm-4">
-                    <label for="localizacao" class="control-label">Valor</label>
+                    <label for="localizacao" class="control-label form_label">Valor</label>
                 </div>
                 <div class="col-lg-8 col-sm-8">
                     <input class="form-control" id="valor" name="valor" placeholder="Valor" type="text" value="<?php echo set_value('valor'); ?>" />
@@ -68,7 +94,7 @@
         <div class="form-group">
             <div class="row colbox">
                 <div class="col-lg-4 col-sm-4">
-                    <label for="localizacao" class="control-label">Numero de quartos</label>
+                    <label for="localizacao" class="control-label form_label">Numero de quartos</label>
                 </div>
                 <div class="col-lg-8 col-sm-8">
                     <input class="form-control" id="nquartos" name="nquartos" placeholder="" type="text" value="<?php echo set_value('nquartos'); ?>" />
@@ -80,7 +106,7 @@
         <div class="form-group">
             <div class="row colbox">
                 <div class="col-lg-4 col-sm-4">
-                    <label for="localizacao" class="control-label">Numero de inscritos</label>
+                    <label for="localizacao" class="control-label form_label">Numero de inscritos</label>
                 </div>
                 <div class="col-lg-8 col-sm-8">
                     <input class="form-control" id="ninscritos" name="ninscritos" placeholder="" type="text" value="<?php echo set_value('ninscritos'); ?>" />
@@ -92,7 +118,7 @@
         <div class="form-group">
             <div class="row colbox">
                 <div class="col-lg-4 col-sm-4">
-                    <label for="localizacao" class="control-label">Limite de inscritos</label>
+                    <label for="localizacao" class="control-label form_label">Limite de inscritos</label>
                 </div>
                 <div class="col-lg-8 col-sm-8">
                     <input class="form-control" id="limiteinscritos" name="limiteinscritos" placeholder="" type="text" value="<?php echo set_value('limiteinscritos'); ?>" />
@@ -105,10 +131,10 @@
             <div class="form-group">
                 <div class="row colbox">
                     <div class="col-lg-4 col-sm-4">
-                        <label for="localizacao" class="control-label">Adicionar Foto de menu</label>
+                        <label for="localizacao" class="control-label form_label">Adicionar Foto de menu</label>
                     </div>
                     <div class="col-lg-8 col-sm-8">
-                        <input type="file" name="userfile" size="20" />
+                        <input type="file"  name="userfile" size="20" />
                     </div>
                 </div>
             </div>

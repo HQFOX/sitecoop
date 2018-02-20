@@ -30,12 +30,12 @@
         <div class="collapse navbar-collapse nav-justified" id="navbarSupportedContent">
             <ul class="navbar-nav nav-justified  " style="width: 100%">
                 <li class="nav-item  nav-justified">
-                    <a href="/sitecoop/"><b class="botao">Pagina Inicial</b></a>
+                    <a href="/sitecoop/"><b class="botao">Página Inicial</b></a>
                 </li>
                 <li class="nav-item nav-justified">
                     <a  href="/sitecoop/index.php/novosprojectos"><b class="botao">Projetos em Iniciação</b></a>
                 <li class="nav-item nav-justified">
-                    <b class="botao"> <a href="/sitecoop">Historico</a></b>
+                    <b class="botao"> <a href="/sitecoop">Histórico</a></b>
                 </li>
                 <li class="nav-item  nav-justified">
                     <a href="/sitecoop/index.php/contactos"><b class="botao">Contactos</b></a>

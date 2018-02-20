@@ -79,7 +79,9 @@ class Admin extends CI_Controller
 
 
             $nome_projeto = $this->input->post("nome_projeto");
-            $localizacao = $this->input->post("localizacao");
+            $localidade = $this->input->post("localidade");
+            $bairro = $this->input->post("bairro");
+            $rua = $this->input->post("rua");
             $tipologia = $this->input->post("tipologia");
             $valor = $this->input->post("valor");
             $nquartos = $this->input->post("nquartos");
@@ -99,25 +101,31 @@ class Admin extends CI_Controller
 
             //FALTA AS REGRAS
             $this->form_validation->set_rules('nome_projeto', 'nome', 'required',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer o nome do projeto %s.')
             );
-            $this->form_validation->set_rules('localizacao', 'localizacão', 'required',
-                array('required' => 'You must provide a %s.')
+            $this->form_validation->set_rules('localidade', 'localidade', 'required',
+                array('required' => 'é obrigatório fornecer a %s.')
+            );
+            $this->form_validation->set_rules('bairro', 'bairro', 'required',
+                array('required' => 'é obrigatório fornecer o bairro %s.')
+            );
+            $this->form_validation->set_rules('rua', 'rua', 'required',
+                array('required' => 'é obrigatório fornecer a %s.')
             );
             $this->form_validation->set_rules('tipologia', 'tipologia', 'required',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer a %s.')
             );
             $this->form_validation->set_rules('valor', 'valor', 'required|numeric',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer o %s.')
             );
             $this->form_validation->set_rules('nquartos', 'Numero de quartos', 'required|numeric',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer o %s.')
             );
             $this->form_validation->set_rules('ninscritos', 'Numero de Inscritos', 'required|numeric',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer o %s.')
             );
             $this->form_validation->set_rules('limiteinscritos', 'Limite Inscritos', 'required|numeric',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer o %s.')
             );
             //verificacao do input
 
@@ -142,7 +150,9 @@ class Admin extends CI_Controller
                         echo('uploadfile true');
                         $input = array(
                             'nome' => $nome_projeto,
-                            'localizacao' => $localizacao,
+                            'localidade' => $localidade,
+                            'bairro' => $bairro,
+                            'rua' => $rua,
                             'tipologia' => $tipologia,
                             'valor' => intval($valor),
                             'nquartos' => $nquartos,
@@ -229,7 +239,9 @@ class Admin extends CI_Controller
 
 
             $nome_projeto = $this->input->post("nome_projeto");
-            $localizacao = $this->input->post("localizacao");
+            $localidade = $this->input->post("localidade");
+            $bairro = $this->input->post("bairro");
+            $rua = $this->input->post("rua");
             $tipologia = $this->input->post("tipologia");
             $valor = $this->input->post("valor");
             $nquartos = $this->input->post("nquartos");
@@ -238,25 +250,31 @@ class Admin extends CI_Controller
 
             //FALTA AS REGRAS
             $this->form_validation->set_rules('nome_projeto', 'nome', 'required',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer o nome do projeto %s.')
             );
-            $this->form_validation->set_rules('localizacao', 'localizacão', 'required',
-                array('required' => 'You must provide a %s.')
+            $this->form_validation->set_rules('localidade', 'localidade', 'required',
+                array('required' => 'é obrigatório fornecer a %s.')
+            );
+            $this->form_validation->set_rules('bairro', 'bairro', 'required',
+                array('required' => 'é obrigatório fornecer o bairro %s.')
+            );
+            $this->form_validation->set_rules('rua', 'rua', 'required',
+                array('required' => 'é obrigatório fornecer a %s.')
             );
             $this->form_validation->set_rules('tipologia', 'tipologia', 'required',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer a %s.')
             );
             $this->form_validation->set_rules('valor', 'valor', 'required|numeric',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer o %s.')
             );
             $this->form_validation->set_rules('nquartos', 'Numero de quartos', 'required|numeric',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer o %s.')
             );
             $this->form_validation->set_rules('ninscritos', 'Numero de Inscritos', 'required|numeric',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer o %s.')
             );
             $this->form_validation->set_rules('limiteinscritos', 'Limite Inscritos', 'required|numeric',
-                array('required' => 'You must provide a %s.')
+                array('required' => 'é obrigatório fornecer o %s.')
             );
             //verificacao do input
 
@@ -271,7 +289,9 @@ class Admin extends CI_Controller
 
                     $input = array(
                         'nome' => $nome_projeto,
-                        'localizacao' => $localizacao,
+                        'localidade' => $localidade,
+                        'bairro' => $bairro,
+                        'rua' => $rua,
                         'tipologia' => $tipologia,
                         'valor' => intval($valor),
                         'nquartos' => $nquartos,
@@ -343,6 +363,25 @@ class Admin extends CI_Controller
 
     }
 
+    public function editarInscricao()
+    {
+        //verificar se o login foi feito
+        if (isset($_SESSION['login']) == TRUE) {
+            $data['projetos'] = $this->Admin_model->getProjetos();
+            $data['inscrito'] = $this->Admin_model->getInscritos();
+            $data['background'] = 1;
+
+            $this->load->model('Admin_model');
+            $this->load->view('templates/header', $data);
+            $this->load->view('news/editarInscricao', $data);
+
+        } else {
+            redirect('index.php/login');
+        }
+    }
+
+    //**********************************contactos*********************************
+
     public function administrarContactos()
     {
         //verificar se o login foi feito
@@ -359,10 +398,10 @@ class Admin extends CI_Controller
 
 
             //FALTA AS REGRAS
-            $this->form_validation->set_rules('email', 'email', 'trim'
+            $this->form_validation->set_rules('email', 'email', 'trim|max_length[30]|valid_email'
             );
 
-            $this->form_validation->set_rules('ntelefone', 'telefone', 'numeric'
+            $this->form_validation->set_rules('ntelefone', 'telefone', 'numeric|max_length[30]'
             );
 
             if ($this->input->post('btn_login') == "Submeter") {
@@ -419,12 +458,409 @@ class Admin extends CI_Controller
         //verificar se o login foi feito
         if (isset($_SESSION['login']) == TRUE) {
             $this->load->model('Contactos_model');
-            $this->Contactos_model->del_numero($numero);
+            $this->Contactos_model->del_ntelefone($numero);
 
             redirect('index.php/admin/administrarcontactos');
         } else {
             redirect('index.php/login');
         }
+    }
+
+    //**********************************^^contactos^^*********************************
+
+    //**********************************projetos*********************************
+
+    public function projeccao($id)
+    {
+        //verificar se o login foi feito
+        if (isset($_SESSION['login']) == TRUE) {
+
+            $data['background'] = 1;
+            $data['titulo'] = 'FOTOS';
+            $data['subtitulo'] = 'PROJECÇÃO';
+            $data['id'] = $id;
+            $data['tipo'] = 'projeccao';
+
+            //conta o numero de fotos de projeccao
+            $filecount = 0;
+            $nomeficheiros =array();
+
+            if (!file_exists("./uploads/$id/projeccao")) {
+                mkdir("./uploads/$id/projeccao", 0777, true);
+            }
+            if ($handle = opendir("./uploads/$id/projeccao")) {
+
+                while (false !== ($entry = readdir($handle))) {
+
+                    if ($entry != "." && $entry != "..") {
+                        $filecount++;
+                        //echo "$entry\n";
+                        array_push($nomeficheiros,$entry);
+                    }
+                }
+
+                closedir($handle);
+            }
+            //---------------------------------
+            $data['filecount'] = $filecount;
+            $data['ficheiros'] = $nomeficheiros;
+
+
+
+
+            $this->load->view('templates/header', $data);
+
+            if ($this->input->post('btn_login') == "Submeter") {
+
+                $this->alterarfoto($id,'projeccao');
+            }
+
+            $this->load->view('news/adminFotos');
+        } else {
+            redirect('index.php/login');
+        }
+
+    }
+    public function planta($id)
+    {
+        //verificar se o login foi feito
+        if (isset($_SESSION['login']) == TRUE) {
+
+
+            $data['background'] = 1;
+            $data['titulo'] = 'FOTOS';
+            $data['subtitulo'] = 'PLANTA';
+            $data['id'] = $id;
+            $data['tipo'] = 'planta';
+
+            //conta o numero de fotos de projeccao
+            $filecount = 0;
+            $nomeficheiros =array();
+            if (!file_exists("./uploads/$id/planta")) {
+                mkdir("./uploads/$id/planta", 0777, true);
+            }
+            if ($handle = opendir("./uploads/$id/planta")) {
+
+                while (false !== ($entry = readdir($handle))) {
+
+                    if ($entry != "." && $entry != "..") {
+                        $filecount++;
+                        //echo "$entry\n";
+                        array_push($nomeficheiros,$entry);
+                    }
+                }
+
+                closedir($handle);
+            }
+            //---------------------------------
+            $data['filecount'] = $filecount;
+            $data['ficheiros'] = $nomeficheiros;
+
+
+
+
+            $this->load->view('templates/header', $data);
+
+            if ($this->input->post('btn_login') == "Submeter") {
+
+                $this->alterarfoto($id,'planta');
+            }
+
+            $this->load->view('news/adminFotos');
+
+    } else {
+            redirect('index.php/login');
+        }
+
+    }
+    public function menu($id)
+    {
+        //verificar se o login foi feito
+        if (isset($_SESSION['login']) == TRUE) {
+
+
+        } else {
+            redirect('index.php/login');
+        }
+
+    }
+
+    public function alterarfoto($id, $tipo)
+    {
+        //verificar se o login foi feito
+        if (isset($_SESSION['login']) == TRUE) {
+
+            $data['background'] = 1;
+            $data['titulo'] = 'FOTOS';
+            $data['subtitulo'] = 'PROJECÇÃO';
+            $data['id'] = $id;
+
+            //conta o numero de fotos de projeccao
+            $filecount = 0;
+            $nomeficheiros =array();
+            if ($handle = opendir("./uploads/$id/$tipo")) {
+
+                while (false !== ($entry = readdir($handle))) {
+
+                    if ($entry != "." && $entry != "..") {
+                        $filecount++;
+                        //echo "$entry\n";
+                        array_push($nomeficheiros,$entry);
+                    }
+                }
+
+                closedir($handle);
+            }
+            //---------------------------------
+            $data['filecount'] = $filecount;
+            $data['ficheiros'] = $nomeficheiros;
+
+
+            $config['file_name'] = "$tipo$filecount";
+            $config['upload_path'] = "./uploads/$id/$tipo";
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = 10000000;
+            $config['max_width'] = 102400;
+            $config['max_height'] = 76800;
+
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+
+            if (!file_exists("./uploads/$id/$tipo")) {
+                mkdir("./uploads/$id/$tipo", 0777, true);
+            }
+
+            //insere imagem
+            if (!$this->upload->do_upload('userfile')) {
+                echo "ERRO";
+            }
+
+
+    } else {
+        redirect('index.php/login');
+    }
+
+    }
+
+    public function delfoto($filename,$tipo){
+        if (isset($_SESSION['login']) == TRUE) {
+
+
+            //chmod("uploads/carrossel/$filename",0777);
+            unlink ( "uploads/$tipo/$filename");
+            //redirect('index.php/admin/home');
+        }
+
+
+    }
+    //**********************************^^projetos^^*********************************
+
+    public function home(){
+        //verificar se o login foi feito
+        if (isset($_SESSION['login']) == TRUE) {
+
+            $this->load->model('Admin_model');
+
+            $data['sobre'] = $this->Admin_model->getSobre();
+
+
+            $data['background'] = 1;
+
+
+            //conta e guarda o nome das fotos do carrossel
+            $filecount = 0;
+            $nomeficheiros =array();
+            if ($handle = opendir("./uploads/carrossel")) {
+
+                while (false !== ($entry = readdir($handle))) {
+
+                    if ($entry != "." && $entry != "..") {
+                        $filecount++;
+                        //echo "$entry\n";
+                        array_push($nomeficheiros,$entry);
+                    }
+                }
+
+                closedir($handle);
+            }
+            //---------------------------------
+            $data['filecount'] = $filecount;
+            $data['ficheiros'] = $nomeficheiros;
+
+
+
+            $this->load->view('templates/header',$data);
+            $this->load->view('news/adminHome');
+
+        } else {
+            redirect('index.php/login');
+        }
+
+    }
+
+    public function novo_post(){
+        //verificar se o login foi feito
+        if (isset($_SESSION['login']) == TRUE) {
+
+            $this->load->model('Admin_model');
+
+
+            $data['background'] = 1;
+
+
+            //conta e guarda o nome das fotos do carrossel
+            $filecount = 0;
+            $nomeficheiros =array();
+            if ($handle = opendir("./uploads/carrossel")) {
+
+                while (false !== ($entry = readdir($handle))) {
+
+                    if ($entry != "." && $entry != "..") {
+                        $filecount++;
+                        //echo "$entry\n";
+                        array_push($nomeficheiros,$entry);
+                    }
+                }
+
+                closedir($handle);
+            }
+            //---------------------------------
+            $data['filecount'] = $filecount;
+            $data['ficheiros'] = $nomeficheiros;
+
+
+
+            $titulo = $this->input->post("titulo");
+            $texto = $this->input->post("texto");
+            $video = $this->input->post("video");
+
+            $config['file_name'] = "cona";
+            $config['upload_path'] = "./uploads/post";
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = 10000000;
+            $config['max_width'] = 102400;
+            $config['max_height'] = 76800;
+
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+
+            //FALTA AS REGRAS
+            $this->form_validation->set_rules('titulo', 'titulo', 'required',
+                array('required' => 'You must provide a %s.')
+            );
+            $this->form_validation->set_rules('texto', 'texto', 'required',
+                array('required' => 'You must provide a %s.')
+            );
+
+            $this->form_validation->set_rules('video', 'video', 'required',
+                array('required' => 'You must provide a %s.')
+            );
+
+            if ($this->input->post('btn_login') == "SubmeterPost") {
+
+                if ($this->form_validation->run() == FALSE) {
+                    //validation fails
+                    echo('FALSO');
+
+                } else {
+                    echo('validation true');
+                    if (!file_exists("./uploads/post")) {
+                        mkdir("./uploads/post", 0777, true);
+
+                        echo('createfile true');
+                    }
+                    //insere imagem
+                    if (!$this->upload->do_upload('userfile')) {
+                        echo "no image file";
+                    }
+
+
+                    $input = array(
+                        'titulo' => $titulo,
+                        'texto' => $texto,
+                        'video' => $video,
+                        'imagem' => $config['file_name'],
+
+
+                    );
+
+                    $this->Admin_model->insertPost($input);
+                    echo json_encode($input);
+                    redirect('index.php/admin/home');
+
+
+                }
+            }
+
+            redirect('index.php/admin/home');
+
+
+        } else {
+            redirect('index.php/login');
+        }
+    }
+    public function sobre(){
+        //verificar se o login foi feito
+        if (isset($_SESSION['login']) == TRUE) {
+
+            $this->load->model('Admin_model');
+
+
+            $data['background'] = 1;
+
+
+
+
+
+
+            $sobre = $this->input->post("sobre");
+
+
+            //FALTA AS REGRAS
+            $this->form_validation->set_rules('sobre', 'sobre', 'required',
+                array('required' => 'You must provide a %s.')
+            );
+
+            if ($this->input->post('btn_login') == "SubmeterSobre") {
+
+                if ($this->form_validation->run() == FALSE) {
+                    //validation fails
+                    echo('FALSO');
+
+                } else {
+
+                    $input = array(
+                        'sobre' => $sobre
+
+
+                    );
+
+                    $this->Admin_model->insertSobre($input);
+                    echo json_encode($sobre);
+                    redirect('index.php/admin/home');
+
+
+
+                }
+            }
+
+
+
+        } else {
+            redirect('index.php/login');
+        }
+    }
+
+    public function delcarrossel($filename){
+        if (isset($_SESSION['login']) == TRUE) {
+
+
+            //chmod("uploads/carrossel/$filename",0777);
+            unlink ( "uploads/carrossel/$filename");
+            //redirect('index.php/admin/home');
+        }
+
+
     }
 }
 

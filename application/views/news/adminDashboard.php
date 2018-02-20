@@ -1,13 +1,19 @@
 <div class="container">
-    <h3>Pagina de administração do site</h3>
+    <div  algin="center" style="margin-top: 50px;">
+        <legend algin="center">
+            <h2 style="font-family:'Aileron Light';color:white; text-align: center">PÁGINA DE</h2>
+
+                <hr class="sublinhado-preinscricao">
+
+            <h2 style="font-family:'Moon';font-weight: bold;color:white; text-align: center">ADMINISTRACAO</h2>
+        </legend>
+    </div>
 
     <div>
         <a href="<?php echo base_url()?>/index.php/admin/administrarprojetos/" <button type="button" class="btn btn-primary">Projetos</button></a>
         <a href="<?php echo base_url()?>/index.php/admin/administrarcontactos" <button type="button" class="btn btn-primary">Contactos</button></a>
-
-        <div>
-            <h3>debug base de dados: <?php print_r( $inscritos); ?></h3>
-        </div>
+        <a href="<?php echo base_url()?>/index.php/admin/home" <button type="button" class="btn btn-primary">Home</button></a>
+        
         <?php if(count($inscritos) == 0)
         {
             echo '<a href="/sitecoop/index.php/admin/administrarinscricoes/" <button type="button" class="btn btn-primary">Não existem novos inscritos</button></a>';

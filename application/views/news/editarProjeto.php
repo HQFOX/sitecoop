@@ -25,11 +25,35 @@
             <div class="form-group">
                 <div class="row colbox">
                     <div class="col-lg-4 col-sm-4">
-                        <label for="localizacao" class="control-label">Localizacão</label>
+                        <label for="localidade" class="control-label">Localidade</label>
                     </div>
                     <div class="col-lg-8 col-sm-8">
-                        <input class="form-control" id="localizacao" name="localizacao"  type="text" value="<?php echo $projeto[0]['localizacao'];echo set_value('localizacao'); ?>" />
-                        <span class="text-danger"><?php echo form_error('localizacao'); ?></span>
+                        <input class="form-control" id="localidade" name="localidade"  type="text" value="<?php echo $projeto[0]['localidade'];echo set_value('localidade'); ?>" />
+                        <span class="text-danger"><?php echo form_error('localidade'); ?></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row colbox">
+                    <div class="col-lg-4 col-sm-4">
+                        <label for="bairro" class="control-label">Bairro</label>
+                    </div>
+                    <div class="col-lg-8 col-sm-8">
+                        <input class="form-control" id="bairro" name="bairro"  type="text" value="<?php echo $projeto[0]['bairro'];echo set_value('bairro'); ?>" />
+                        <span class="text-danger"><?php echo form_error('bairro'); ?></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row colbox">
+                    <div class="col-lg-4 col-sm-4">
+                        <label for="rua" class="control-label">Rua</label>
+                    </div>
+                    <div class="col-lg-8 col-sm-8">
+                        <input class="form-control" id="rua" name="rua"  type="text" value="<?php echo $projeto[0]['rua'];echo set_value('rua'); ?>" />
+                        <span class="text-danger"><?php echo form_error('rua'); ?></span>
                     </div>
                 </div>
             </div>
@@ -111,8 +135,8 @@
         </fieldset>
     <?php echo form_close(); ?>
     <?php echo $this->session->flashdata('msg'); ?>
-    <div>Editar fotos projecção</div>
-    <div>Editar fotos planta</div>
+    <div> <a href="/sitecoop/index.php/admin/projeccao/<?php echo$x ?>"> Editar fotos projecção</a></div>
+    <div> <a href="/sitecoop/index.php/admin/planta/<?php echo$x ?>"> Editar fotos planta</a></div>
     <div>Editar foto menu</div>
 </div>
 

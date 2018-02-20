@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.19, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
 --
 -- Host: localhost    Database: TESTE
 -- ------------------------------------------------------
--- Server version	5.7.19-0ubuntu0.16.04.1
+-- Server version	5.7.21-0ubuntu0.17.10.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,42 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `TESTE`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `TESTE` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `TESTE`;
+
+--
+-- Table structure for table `Inscricoes`
+--
+
+DROP TABLE IF EXISTS `Inscricoes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Inscricoes` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `nomeI` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telefone` varchar(255) NOT NULL,
+  `projetoId` int(255) NOT NULL,
+  `inscrito` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Inscricoes`
+--
+
+LOCK TABLES `Inscricoes` WRITE;
+/*!40000 ALTER TABLE `Inscricoes` DISABLE KEYS */;
+INSERT INTO `Inscricoes` VALUES (1,'henrique','henrique.raposo95@gmail.com','9696969696',2,0),(2,'','','',0,0),(3,'cona','h','4',1,0);
+/*!40000 ALTER TABLE `Inscricoes` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `Projeto`
@@ -33,8 +69,10 @@ CREATE TABLE `Projeto` (
   `fotosprojeccaocasa` varchar(255) DEFAULT NULL,
   `ninscritos` int(11) DEFAULT NULL,
   `limiteinscritos` int(11) DEFAULT NULL,
+  `descricao` varchar(255) DEFAULT NULL,
+  `oculto` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,8 +81,55 @@ CREATE TABLE `Projeto` (
 
 LOCK TABLES `Projeto` WRITE;
 /*!40000 ALTER TABLE `Projeto` DISABLE KEYS */;
-INSERT INTO `Projeto` VALUES (1,'Cabeço do Arraial','Bairro de Almeirim',1,1000000,3,'CONA1','CONA2',10,20),(2,'Cabeço do Arraial2','Bairro de Almeirim',1,1000000,3,'CONA1','CONA2',10,10);
+INSERT INTO `Projeto` VALUES (1,'Cabeço do Arraial39','Bairro da Malagueira',0,30000,5,NULL,NULL,10,20,NULL,NULL),(2,'Cabeço do Arraial36','Bairro da Malagueira',0,30000,4,NULL,NULL,5,7,NULL,NULL),(3,'Cabeço Cheio','cabeço',0,30000,4,NULL,NULL,4,6,NULL,NULL),(4,'Cabeço do Arraial','cabeço',0,4000,5,NULL,NULL,5,10,NULL,NULL);
 /*!40000 ALTER TABLE `Projeto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contactos`
+--
+
+DROP TABLE IF EXISTS `contactos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contactos` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `ntelefones` varchar(255) DEFAULT NULL,
+  `emails` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contactos`
+--
+
+LOCK TABLES `contactos` WRITE;
+/*!40000 ALTER TABLE `contactos` DISABLE KEYS */;
+INSERT INTO `contactos` VALUES (2,NULL,NULL),(7,NULL,NULL),(8,NULL,NULL),(9,'3423',NULL),(10,'453454',NULL),(11,'4444','dfsfsf@cona.com');
+/*!40000 ALTER TABLE `contactos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `emails`
+--
+
+DROP TABLE IF EXISTS `emails`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `emails` (
+  `email` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emails`
+--
+
+LOCK TABLES `emails` WRITE;
+/*!40000 ALTER TABLE `emails` DISABLE KEYS */;
+INSERT INTO `emails` VALUES ('henrique.raposo95@gmail.com');
+/*!40000 ALTER TABLE `emails` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -94,6 +179,28 @@ LOCK TABLES `nomeProjectosteste` WRITE;
 /*!40000 ALTER TABLE `nomeProjectosteste` DISABLE KEYS */;
 INSERT INTO `nomeProjectosteste` VALUES ('Bairro Almeirim','40');
 /*!40000 ALTER TABLE `nomeProjectosteste` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `numeros_telefone`
+--
+
+DROP TABLE IF EXISTS `numeros_telefone`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `numeros_telefone` (
+  `numero` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `numeros_telefone`
+--
+
+LOCK TABLES `numeros_telefone` WRITE;
+/*!40000 ALTER TABLE `numeros_telefone` DISABLE KEYS */;
+INSERT INTO `numeros_telefone` VALUES ('266733299');
+/*!40000 ALTER TABLE `numeros_telefone` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -155,4 +262,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-22 18:06:38
+-- Dump completed on 2018-02-11 22:39:21
