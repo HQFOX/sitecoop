@@ -1,53 +1,61 @@
 <div class="container">
-    <a href="/sitecoop/index.php/admin">
-        <button type="button" class="btn btn-default">Voltar</button>
-    </a>
+    <div class="row" style="margin-top: 5%">
+        <a href="/sitecoop/index.php/admin">
+            <button type="button" class="btn btn-default buttao-admin-white">Voltar</button>
+        </a>
+    </div>
     <div class=" col-sm-12" style="margin-top:8%;">
-        <h2 style="font-family:'Aileron Light';color:white; text-align: center">CONTACTOS</h2>
-        <hr class="sublinhado-preinscricao">
+        <h2 style="font-family:'Aileron Light';color:white; text-align: right">Administrar Contactos</h2>
+        <hr class="sublinhado-white">
     </div>
 
 
-    <div class=" col-sm-4" style="margin-left: 35%; margin-top:8%;">
-        <table class="table table-hover" style="margin-top: 40px">
+    <div class=" col-sm-4" style="margin:auto; margin-top:8%;">
+        <table class="table table-hover" style="margin-top: 40px; background-color: white; border-radius: 10px;">
             <thead>
             <tr>
-                <th>Numeros de telefone</th>
+                <th style="border-top: 0px;">Numeros de telefone</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($ntelefones as $telefone){
-                if($telefone['ntelefones']!= null){?>
+                if($telefone['ntelefones']!= null){
+                $data['value'] = $telefone['id'];
+                $data['tipo'] = "numero";
+                $this->load->view('news/modals/apagarContacto_modal', $data);?>
             <tr>
                 <td><?php print_r($telefone['ntelefones'])?></td>
-                <td><a href="<?php echo base_url(); ?>/index.php/admin/delnumero/<?php echo $telefone['id']; ?>"> APAGAR</a></td>
+                <td><button type="button" data-toggle="modal" data-target="#apagar_contactos_Modal"  class="btn contactos-admin-button"> Apagar</button></td>
             </tr>
             <?php }}?>
             </tbody>
         </table>
     </div>
-    <div class=" col-sm-4" style="margin-left: 35%; margin-top:8%;">
-        <table class="table table-hover">
+    <div class=" col-sm-4" style="margin:auto; margin-top:8%;">
+        <table class="table table-hover" style="background-color: white; border-radius: 10px;">
             <thead>
             <tr>
-                <th>Emails</th>
+                <th style="border-top: 0px;">Emails</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($emails as $email){
-                if($email['emails']!= null){?>
+                if($email['emails']!= null){
+                $data['value'] = $email['id'];
+                $data['tipo'] = "email";
+                $this->load->view('news/modals/apagarContacto_modal', $data);?>
                     <tr>
                         <td><?php print_r($email['emails'])?></td>
-                        <td><a href="<?php echo base_url(); ?>/index.php/admin/delemail/<?php echo $email['id']; ?>"> APAGAR</a></td>
+                        <td><button type="button" data-toggle="modal" data-target="#apagar_contactos_Modal" class="btn contactos-admin-button"> Apagar</button></td>
                     </tr>
                 <?php }}?>
             </tbody>
         </table>
     </div>
-    <div class=" col-sm-4" style="margin-left: 35%; margin-top:8%;">
-        <h2 style="font-family:'Aileron Light';color:white; text-align: center">ADCICIONAR</h2>
-        <hr class="sublinhado-preinscricao">
-        <h2 style="font-family:'Moon';font-weight: bold;color:white; text-align: center">CONTACTOS</h2>
+    <div class=" col-sm-4" style="margin:auto; margin-top:8%;">
+        <h2 style="font-family:'Aileron Light';color:white; text-align: center">Adicionar</h2>
+        <hr class="sublinhado-white">
+        <h2 style="font-family:'Aileron Light';font-weight: bold;color:white; text-align: center">Contacto</h2>
         <?php
         echo form_open("index.php/admin/administrarcontactos");?>
         <fieldset style="margin-top:10%;padding-left:5% ; padding-right:5%;">
@@ -70,9 +78,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="row colbox">
-                    <div class="col-lg-12 col-sm-12 text-center">
-                        <input id="btn_login" name="btn_login" type="submit" class="btn btn-default pre-inscricao-submit" value="Submeter" />
+                <div class="row" align="right">
+                    <div class="col-sm-12">
+                        <input id="btn_login" name="btn_login" type="submit" class="btn buttao-admin-white" value="Submeter" />
                     </div>
                 </div>
             </div>

@@ -37,4 +37,35 @@ class NovosProjectos_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function getCarrossel()
+    {
+        $query = $this->db->query("SELECT * FROM descricao_carrossel ORDER BY id ASC");
+
+        return $query->result_array();
+
+    }
+
+    public function getFotos($id,$tipo){
+
+        $query = $this->db->select('*')
+                            ->from('fotos')
+                            ->where('idProjeto',$id)
+                            ->where('tipo',$tipo)
+                            ->get();
+
+        return $query->result_array();
+
+    }
+
+    public function getFotosPerfil(){
+        $query = $this->db->select('*')
+            ->from('fotos')
+            ->where('tipo','menu')
+            ->order_by('idProjeto',"desc")
+            ->get();
+
+        return $query->result_array();
+
+
+    }
 }

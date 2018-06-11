@@ -71,10 +71,19 @@ class admin_model extends CI_Model
         return $query->result_array();
     }
 
-    public function delInscrito($id)
+    public function delInscrito($value,$id,$idp)
     {
-        $this->db->query("DELETE FROM Inscricoes WHERE id = '$id';");
+        if($value ==1) {
+            $this->db->query("DELETE FROM Inscricoes WHERE id = '$id';");
 
+            $this->db->where('id', $idp)
+                ->set('ninscritos', 'ninscritos-1', FALSE)
+                ->update('Projeto');
+        }
+        else{
+            $this->db->query("DELETE FROM Inscricoes WHERE id = '$id';");
+
+        }
 
 
     }
@@ -87,27 +96,60 @@ class admin_model extends CI_Model
     }
 
 
-    public function setInscrito($value,$id)
+    public function setInscrito($value,$id,$idp)
     {
+
         if($value ==1)
         {
-            $this->db->update('Inscricoes')
-                ->set('inscrito',0)
-                ->where('id',$id);
+            $this->db->where('id',$id)
+                ->set('inscrito',0, FALSE)
+                ->update('Inscricoes');
+
+            $this->db->where('id',$idp)
+                ->set('ninscritos','ninscritos-1',FALSE )
+                ->update('Projeto');
         }
         elseif ($value ==0)
         {
             $this->db->where('id',$id)
-                    ->set('inscrito',1)
+                    ->set('inscrito',1,FALSE)
                     ->update('Inscricoes');
+
+            $this->db->where('id',$idp)
+                ->set('ninscritos','ninscritos+1',FALSE )
+                ->update('Projeto');
 
         }
     }
 
     public function insertPost($data){
         $this->db->insert('post', $data);
-        echo "cona";
+
     }
+
+    public function deletePost($id){
+        $this->db->where('id',$id);
+        $this->db->delete('post');
+    }
+
+    public function getPost($id)
+
+    {
+        $query = $this->db->select('*')
+            ->from('post')
+            ->where('id',$id)
+            ->get();
+
+        return $query->result_array();
+    }
+
+    public function updatePost($id,$data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('post', $data);
+
+    }
+
 
     public function getSobre(){
 
@@ -119,6 +161,88 @@ class admin_model extends CI_Model
     }
     public function insertSobre($data){
         $this->db->insert('sobre',$data);
+
+    }
+
+    public function insertDescricaoCarrossel($data){
+        $this->db->insert('descricao_carrossel',$data);
+
+    }
+
+    public function updateDescricaoCarrossel($id,$data)
+    {
+
+        $this->db->where('id', $id);
+        $this->db->update('descricao_carrossel', $data);
+
+    }
+
+    public function updateDescricaoCarrosselFoto($filename,$data)
+    {
+
+        $this->db->where('filename', $filename);
+        $this->db->update('descricao_carrossel', $data);
+
+    }
+
+
+    public function deleteDescricaoCarrossel($filename)
+    {
+
+        $this->db->where('filename', $filename);
+        $this->db->delete('descricao_carrossel');
+
+    }
+
+
+    public function getDescricao($id)
+
+    {
+        $query = $this->db->select('*')
+            ->from('descricao_carrossel')
+            ->where('id',$id)
+            ->get();
+
+        return $query->result_array();
+    }
+    public function getDescricoes()
+
+    {
+        $query = $this->db->select('*')
+            ->from('descricao_carrossel')
+            ->get();
+
+        return $query->result_array();
+    }
+
+    public function insertFoto($tipo,$filename,$projetoId){
+
+        $data = array ('tipo' => $tipo, 'filename' => $filename, 'idProjeto' => $projetoId  );
+
+        $this->db->insert('fotos',$data);
+    }
+
+    public function deleteFoto($tipo,$filename,$projetoId){
+        $this->db->where('tipo', $tipo);
+        $this->db->where('filename', $filename);
+        $this->db->where('idProjeto', $projetoId);
+        $this->db->delete('fotos');
+    }
+
+    public function getFotos($tipo,$projetoId){
+        $query = $this->db->select('*')
+            ->from('fotos')
+            ->where('tipo',$tipo)
+            ->where('Idprojeto',$projetoId)
+            ->get();
+
+        return $query->result_array();
+    }
+
+    public function updateFotoPerfil($filename,$projetoId){
+        $this->db->set('fotoperfil', $filename);
+        $this->db->where('id', $projetoId);
+        $this->db->update('Projeto');
 
     }
 }

@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'Home';
 
-//$route['novosprojectos'] = 'Novosprojectos';
+//$route['novosprojectos'] = 'Projectos';
 
 //$route['default_controller'] = 'welcome';
 $route['404_override'] = '';
