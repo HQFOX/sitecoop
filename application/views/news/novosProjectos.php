@@ -8,35 +8,119 @@
         </div>
     </div>
     <div class="col-sm-12">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/<?php echo $projeto[0]['id']?>/<?php echo $projeto[0]['fotoperfil']?>">
+        <div id="accordion">
+            <?php if(count($projeccao)>0){ ?>
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Fotos de projeção
+                        </button>
+                    </h5>
                 </div>
-                <?php foreach($construcao as $construcao){?>
-                    <div class="carousel-item">
-                        <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/<?php echo $projeto[0]['id']?>/construcao/<?php echo $construcao['filename'] ?>">
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+
+                        <div id="carouselProjeccao" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/<?php echo $projeto[0]['id']?>/<?php echo $projeto[0]['fotoperfil']?>">
+                                </div>
+                                <?php foreach($projeccao as $projeccao){?>
+                                    <div class="carousel-item">
+                                        <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/<?php echo $projeto[0]['id']?>/projeccao/<?php echo $projeccao['filename']?>">
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselProjeccao" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselProjeccao" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+
+
                     </div>
-                <?php } ?>
-                <?php foreach($planta as $planta){?>
-                    <div class="carousel-item">
-                        <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/<?php echo $projeto[0]['id']?>/planta/<?php echo $planta['filename']?>">
-                    </div>
-                <?php } ?>
-                <?php foreach($projeccao as $projeccao){?>
-                    <div class="carousel-item">
-                        <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/<?php echo $projeto[0]['id']?>/projeccao/<?php echo $projeccao['filename']?>">
-                    </div>
-                <?php } ?>
+                </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <?php } ?>
+            <?php if(count($construcao)>0){ ?>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Fotos de construção
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div id="carouselConstrucao" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/<?php echo $projeto[0]['id']?>/<?php echo $projeto[0]['fotoperfil']?>">
+                                </div>
+                                <?php foreach($construcao as $construcao){?>
+                                    <div class="carousel-item">
+                                        <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/<?php echo $projeto[0]['id']?>/construcao/<?php echo $construcao['filename'] ?>">
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselConstrucao" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselConstrucao" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+            <?php if(count($planta)>0){ ?>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Fotos da planta
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        <div id="carouselPlanta" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/<?php echo $projeto[0]['id']?>/<?php echo $projeto[0]['fotoperfil']?>">
+                                </div>
+                                <?php foreach($planta as $planta){?>
+                                    <div class="carousel-item">
+                                        <img class="d-block img-fluid" style="width: 100%; max-height: 550px" src="<?php echo base_url()?>/uploads/<?php echo $projeto[0]['id']?>/planta/<?php echo $planta['filename']?>">
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselPlanta" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselPlanta" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
         </div>
         <div style="margin-top: 10%; margin-bottom: 7%;">
             <span>

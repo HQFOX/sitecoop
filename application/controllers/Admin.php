@@ -182,7 +182,7 @@ class Admin extends CI_Controller
                         }
                         $this->Admin_model->insertProjeto($input);
                         //echo json_encode($input);
-                        redirect('index.php/admin/adicionarprojetos');
+                        redirect('index.php/admin/administrarprojetos');
                     }
                 }
             }
@@ -919,34 +919,92 @@ class Admin extends CI_Controller
             $data['background'] = 3;
             $data['post'] = $this->Admin_model->getPost($id);
 
-            $this->load->model('Admin_model');
-            $this->load->view('templates/header', $data);
+            //conta e guarda o nome das fotos dos post
+            $filecount = 0;
+            $nomeficheiros =array();
+            if ($handle = opendir("./uploads/post")) {
+
+                while (false !== ($entry = readdir($handle))) {
+
+                    if ($entry != "." && $entry != "..") {
+                        $filecount++;
+                        //echo "$entry\n";
+                        array_push($nomeficheiros,$entry);
+                    }
+                }
+
+                closedir($handle);
+            }
+            //---------------------------------
+            $data['filecount'] = $filecount;
+            $data['ficheiros'] = $nomeficheiros;
+
 
 
             $titulo = $this->input->post("titulo");
+            $texto = $this->input->post("texto");
             $video = $this->input->post("video");
 
+            $config['file_name'] = "post$filecount";
+            $config['upload_path'] = "./uploads/post";
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = 10000000;
+            $config['max_width'] = 102400;
+            $config['max_height'] = 76800;
+
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+
             //FALTA AS REGRAS
-            $this->form_validation->set_rules('titulo', 'nome', 'required',
-                array('required' => 'é obrigatório fornecer o nome do projeto %s.')
+            $this->form_validation->set_rules('titulo', 'titulo', 'required',
+                array('required' => 'You must provide a %s.')
+            );
+            $this->form_validation->set_rules('texto', 'texto', 'required',
+                array('required' => 'You must provide a %s.')
             );
 
-            //verificacao do input
-
+            $this->form_validation->set_rules('video', 'video', '',
+                array('required' => 'You must provide a %s.')
+            );
 
             if ($this->input->post('btn_login') == "Submeter") {
 
                 if ($this->form_validation->run() == FALSE) {
                     //validation fails
-                    echo('FALSO');
+                    //echo('FALSO');
 
                 } else {
+                    echo('validation true');
+                    if (!file_exists("./uploads/post")) {
+                        mkdir("./uploads/post", 0777, true);
+
+                        //echo('createfile true');
+                    }
+                    //insere imagem
+
+                    if (!$this->upload->do_upload('userfile')) {
+                        $file_name = "noimage";
+                    }
+                    else{
+                        $upload_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
+                        $file_name = $upload_data['file_name'];
+                    }
+
+                    if($video!='') {
+
+                        $video = $this->convertYoutube($video);
+                    }
 
                     $input = array(
                         'titulo' => $titulo,
+                        'texto' => $texto,
                         'video' => $video,
+                        'imagem' => $file_name,
+
 
                     );
+
+
 
                     $this->Admin_model->updatePost($data['post'][0]['id'], $input);
                     echo json_encode($input);
@@ -955,8 +1013,8 @@ class Admin extends CI_Controller
                 }
             }
 
-
-            $this->load->view('news/editarPost', $data);
+            $this->load->view('templates/header',$data);
+            $this->load->view('news/editarPost');
         } else {
             redirect('index.php/login');
         }
