@@ -159,8 +159,8 @@ class Projectos extends CI_Controller {
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://cooperativahabitacao-giraldosempavor.pt',
             'smtp_port' => 465,
-            'smtp_user' => 'informacoes_automaticas@cooperativahabitacao-giraldosempavor.pt',
-            'smtp_pass' => ')oARL?e5,pTR',
+            'smtp_user' => '@cooperativahabitacao-giraldosempavor.pt',
+            'smtp_pass' => '',
             'mailtype'  => 'html',
             'charset'   => 'utf-8'
         );
